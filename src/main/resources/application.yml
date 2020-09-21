@@ -1,0 +1,7 @@
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+#  file:
+#    path: /Users/weijiexiang/Desktop/java-log
+#  level:
+#    com.alex.java.JavaApplicationTests: debug
