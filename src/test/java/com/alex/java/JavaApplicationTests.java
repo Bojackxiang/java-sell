@@ -14,6 +14,7 @@ public class JavaApplicationTests {
 
     @Test
     void logging() {
+        
         log.warn("this is a warning ...");
         log.info("info level ...");
         log.error("this is an error");

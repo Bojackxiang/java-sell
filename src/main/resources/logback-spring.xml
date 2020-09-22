@@ -42,7 +42,7 @@
 
 
     <root level="info">
-<!--        <appender-ref ref="consoleLog"/>-->
+        <appender-ref ref="consoleLog"/>
         <appender-ref ref="fileErrorLog"/>
         <appender-ref ref="fileInfoLog"/>
     </root>
