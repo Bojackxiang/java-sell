@@ -23,4 +23,13 @@ public class JavaApplicationTests {
 
     }
 
+    @Test
+    void compareIntegerAndInt () {
+        Integer x1 = Integer.valueOf(10);
+        Integer x2 = new Integer(10);
+
+        System.out.println(x1.equals(x2));
+
+    }
+
 }

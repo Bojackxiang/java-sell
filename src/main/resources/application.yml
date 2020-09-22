@@ -5,3 +5,14 @@
 #    path: /Users/weijiexiang/Desktop/java-log
 #  level:
 #    com.alex.java.JavaApplicationTests: debug
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:8889/sell?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
