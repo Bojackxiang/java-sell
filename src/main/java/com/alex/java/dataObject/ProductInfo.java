@@ -31,7 +31,15 @@ public class ProductInfo {
 
     }
 
-    public ProductInfo(String productId, String productName, BigDecimal productPrice, Integer productStock, String productDescription, String productIcon, Integer productStatus, Integer categoryType) {
+    public ProductInfo(
+            String productId,
+            String productName,
+            BigDecimal productPrice,
+            Integer productStock,
+            String productDescription,
+            String productIcon,
+            Integer productStatus,
+            Integer categoryType) {
         this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;

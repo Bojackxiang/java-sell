@@ -3,6 +3,7 @@ package com.alex.java.services;
 import com.alex.java.dataObject.ProductCategory;
 import com.alex.java.repo.ProductCategoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,13 +11,11 @@ import java.util.Optional;
 
 @Service
 public class CategoryServiceImpl implements CategoryServiceInterface {
-
     @Autowired
-    private ProductCategoryRepo productCategoryRepo;
+    ProductCategoryRepo productCategoryRepo;
 
     @Override
     public Optional<ProductCategory> findById(Integer categoryId) {
-
         return productCategoryRepo.findById(categoryId);
     }
 
