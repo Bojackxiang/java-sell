@@ -16,7 +16,7 @@ import java.util.List;
 public class BuyerProductController {
 
   @GetMapping("/list")
-  public ResponseObj<ArrayList<ProductDataObj>> list() {
+  public ResponseObj<List<ProductDataObj>> list() {
     /* NOTE:
      * 这里需要注意，，java的范型一定要声明是什么样子的范型
      *
@@ -26,16 +26,16 @@ public class BuyerProductController {
     responseObj.setCode(1);
     responseObj.setMessage("this is a message");
 
-    ProductDataObj productDataObj = new ProductDataObj();
-    ProductInfo productInfo = new ProductInfo(); // foods
 
+    ProductDataObj productDataObj = new ProductDataObj();
+    ProductInfo productInfo = new ProductInfo();
     productDataObj.setProductInfoList(Arrays.asList(productInfo, productInfo));
 
+    ArrayList<ProductDataObj> readyProductObj = new ArrayList<>();
 
     // 开始为 response 中的 data 生成数据
 
-
-    responseObj.setData(productDataObj.getProductInfoList());
+    responseObj.setData(Arrays.asList(productDataObj, productDataObj));
 
     // 开始为 foot 生成数据 中的
     // productDataObjects.add(productInfo);
