@@ -1,5 +1,6 @@
 package com.alex.java.Utils;
 
+import com.alex.java.dataObject.ProductInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
@@ -15,9 +16,9 @@ public class ProductDataObj {
   private String categoryName;
 
   @JsonProperty("type")
-  private Integer categoryTypes;
+  private Integer categoryTypes ;
 
   @JsonProperty("food")
-  private List<ProductInfo> productInfoList;
+  private List<ProductInfoObj> productInfoList;
 
 }

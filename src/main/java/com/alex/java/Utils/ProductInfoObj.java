@@ -5,7 +5,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class ProductInfo {
+public class ProductInfoObj {
 
   @JsonProperty("id")
   private String id;

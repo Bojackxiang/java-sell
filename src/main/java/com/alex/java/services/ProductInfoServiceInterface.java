@@ -16,6 +16,8 @@ public interface ProductInfoServiceInterface {
 
     Page<ProductInfo> findProductInfoByPage(Pageable pageable);
 
+    List<ProductInfo> findProductByStatus(Integer status);
+
     // ProductInfo increaseStocking();
 
     // ProductInfo decreaseStocking();

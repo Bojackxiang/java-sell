@@ -36,25 +36,27 @@ class ProductCategoryRepoTest {
     @Test
     public void updateOne() {
 
-        Optional<ProductCategory> findResult = repo.findById(3);
-        boolean isOptional = findResult.isPresent();
-        if (!isOptional) {
-            System.out.println("hello");
-        } else {
-            ProductCategory productCategory;
-            productCategory = findResult.get();
-            productCategory.setCategoryName("ae86");
-            repo.save(productCategory);
-        }
+//        Optional<ProductCategory> findResult = repo.findById(3);
+//        boolean isOptional = findResult.isPresent();
+//        if (!isOptional) {
+//            System.out.println("hello");
+//        } else {
+//            ProductCategory productCategory;
+//            productCategory = findResult.get();
+//            productCategory.setCategoryName("ae86");
+//            repo.save(productCategory);
+//        }
 
     }
 
     @Test
     public void retriveList(){
-        List<Integer> cateList = Arrays.asList(0, 1);
+        List<Integer> cateList = Arrays.asList(1, 2);
 
         List<ProductCategory> findResult = repo.findByCategoryTypeIn(cateList);
-        System.out.println(findResult.size());
+        for(ProductCategory productCategory: findResult){
+            System.out.println(productCategory.getCategoryName());
+        }
         Assert.notEmpty(findResult, "findResult 不能为空");
     }
 

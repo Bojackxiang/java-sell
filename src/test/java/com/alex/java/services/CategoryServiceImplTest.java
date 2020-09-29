@@ -44,6 +44,10 @@ class CategoryServiceImplTest {
     void findCategoryTypeIn() {
         List<Integer> cateType = Arrays.asList(0,1);
         List<ProductCategory> productCategoriesList = categoryService.findCategoryTypeIn(cateType);
+        for(ProductCategory productCategory: productCategoriesList){
+      System.out.println("test");
+//            System.out.println(productCategory.getCategoryName());
+        }
         assert productCategoriesList.size() != 0;
     }
 
