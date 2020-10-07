@@ -18,9 +18,9 @@ public interface ProductInfoServiceInterface {
 
     List<ProductInfo> findProductByStatus(Integer status);
 
-    // ProductInfo increaseStocking();
+     void increaseStockingByOne(String productId);
 
-    // ProductInfo decreaseStocking();
+     void decreaseStockingByOne(String productId);
 
 
 

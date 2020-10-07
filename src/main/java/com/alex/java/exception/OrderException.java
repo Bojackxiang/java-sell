@@ -2,8 +2,6 @@ package com.alex.java.exception;
 
 import com.alex.java.enums.ResultEnum;
 
-import java.util.ResourceBundle;
-
 public class OrderException extends RuntimeException{
 
     private Integer code;

@@ -25,11 +25,10 @@ public class JavaApplicationTests {
 
     @Test
     void compareIntegerAndInt () {
-        Integer x1 = Integer.valueOf(10);
-        Integer x2 = new Integer(10);
+        float test = 12.1F;
+        long test2 = (long) 10.2;
 
-        System.out.println(x1.equals(x2));
-
+        test2 = (long) test; // 手动转换
     }
 
 }
