@@ -34,7 +34,8 @@ public class ProductInfoServiceImpl implements ProductInfoServiceInterface {
     public ProductInfo findOneProductInfoById(String id) {
         ProductInfo foundProductInfo =
                 productInfoRepo.findProductInfosByProductId(id).orElse(null);
-
+        System.out.println(foundProductInfo.toString());
+        System.out.println("test");
         return foundProductInfo;
 
     }

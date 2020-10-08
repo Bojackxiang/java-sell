@@ -19,7 +19,7 @@ class ProductInfoRepoTest {
 
     @Test
     void findByProductId() {
-        Optional<ProductInfo> productInfo = productInfoRepo.findProductInfosByProductId("1234");
+        Optional<ProductInfo> productInfo = productInfoRepo.findProductInfosByProductId("1");
         System.out.println(productInfo);
         Assert.notNull(productInfo, "测试的数据不能为 null");
 

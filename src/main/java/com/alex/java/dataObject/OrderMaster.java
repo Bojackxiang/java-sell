@@ -18,7 +18,8 @@ import java.util.List;
 public class OrderMaster {
 
   /** 订单id. */
-  @Id private String orderId;
+  @Id
+  private String orderId;
 
   /** 买家名字. */
   private String buyerName;

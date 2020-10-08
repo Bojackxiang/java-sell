@@ -5,6 +5,8 @@ import com.alex.java.Utils.KeyUtil;
 import com.alex.java.dataObject.OrderDetail;
 import com.alex.java.dataObject.OrderMaster;
 import com.alex.java.dataObject.ProductInfo;
+import com.alex.java.enums.OrderStatusEnum;
+import com.alex.java.enums.PayStatusEnum;
 import com.alex.java.enums.ResultEnum;
 import com.alex.java.exception.OrderException;
 import com.alex.java.repo.OrderDetailRepo;
@@ -39,7 +41,7 @@ public class OrderServiceImpl implements OrderServiceInterface {
   @Transactional
   public OrderDTO createOrder(OrderDTO orderDTO) throws RuntimeException {
     // 订单的总价格 -> ORDER MASTER ID
-    UUID orderId = KeyUtil.generateUUID();
+    String orderId = KeyUtil.genUniqueKey();
     String strinigiedUUID = orderId.toString();
 
     List<OrderDetail> orderDetailList = orderDTO.getOrderDetailList();
@@ -54,23 +56,27 @@ public class OrderServiceImpl implements OrderServiceInterface {
       }
       totalPrice =
           totalPrice.add(
-              orderDetail
+              productInfo
                   .getProductPrice()
                   .multiply(new BigDecimal(orderDetail.getProductQuantity())));
 
       // 属性拷贝和设置order id && order detail id
       BeanUtils.copyProperties(productInfo, orderDetail);
-      orderDetail.setDetailId(KeyUtil.generateUUID().toString());
+      orderDetail.setDetailId(KeyUtil.genUniqueKey());
       orderDetail.setOrderId(strinigiedUUID);
 
       orderDetailRepo.save(orderDetail);
     }
 
     // 处理order master
+    // Bean utils 还是要放在最前面
     OrderMaster orderMaster = new OrderMaster();
-    orderMaster.setOrderId(strinigiedUUID);
-    orderMaster.setOrderAmount(totalPrice);
     BeanUtils.copyProperties(orderDTO, orderMaster);
+    orderMaster.setOrderId(KeyUtil.genUniqueKey());
+    orderMaster.setOrderAmount(totalPrice);
+    orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
+    orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
+
 
     // 将 order master 存入表中 -> SAVE ORDER TO TABLE
     orderMasterRepo.save(orderMaster);
@@ -83,7 +89,8 @@ public class OrderServiceImpl implements OrderServiceInterface {
        */
       // 找到 item 的 id
       String productId = itemInfo.getProductId();
-      // check stock: lock topic
+      // check stock: lock topic 错误好像是在这里
+      System.out.println(productId);
       ProductInfo foundResult = productInfoService.findOneProductInfoById(productId);
       Integer stockNumber = foundResult.getProductStock();
       if(stockNumber <= 0) {
@@ -93,8 +100,6 @@ public class OrderServiceImpl implements OrderServiceInterface {
       productInfoService.decreaseStockingByOne(productId);
 
     }
-
-
 
     // RETURN ORDER DTO
     return orderDTO;
