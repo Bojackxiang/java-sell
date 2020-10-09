@@ -2,6 +2,7 @@ package com.alex.java.services;
 
 import com.alex.java.DTO.OrderDTO.OrderDTO;
 import com.alex.java.dataObject.OrderDetail;
+import com.alex.java.dataObject.ProductInfo;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,15 +26,21 @@ class OrderServiceImplTest {
 
     List<OrderDetail> orderDetailList = new ArrayList<>();
     OrderDetail o1 = new OrderDetail();
-    o1.setProductId("2");
+    o1.setProductId("1");
     o1.setProductQuantity(1);
 
     OrderDetail o2 = new OrderDetail();
-    o2.setProductId("1");
+    o2.setProductId("2");
     o2.setProductQuantity(1);
+
+    // 测试transactional
+//    OrderDetail o3 = new OrderDetail();
+//    o2.setProductId("3");
+//    o2.setProductQuantity(1);
 
     orderDetailList.add(o1);
     orderDetailList.add(o2);
+//    orderDetailList.add(o3);
 
     orderDto.setOrderDetailList(orderDetailList);
 

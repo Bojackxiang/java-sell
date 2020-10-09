@@ -44,6 +44,7 @@ public class OrderServiceImpl implements OrderServiceInterface {
     String orderId = KeyUtil.genUniqueKey();
     String strinigiedUUID = orderId.toString();
 
+    // 这边的的order detail应该是购物车里面选择的东西，
     List<OrderDetail> orderDetailList = orderDTO.getOrderDetailList();
 
     // 订单总价 -> ORDER MASTER TOTAL PRICE

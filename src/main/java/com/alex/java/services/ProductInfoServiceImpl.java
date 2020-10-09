@@ -1,11 +1,9 @@
 package com.alex.java.services;
 
 import com.alex.java.dataObject.ProductInfo;
-import com.alex.java.enums.OrderStatusEnum;
 import com.alex.java.enums.ResultEnum;
 import com.alex.java.exception.OrderException;
 import com.alex.java.repo.ProductInfoRepo;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -34,8 +32,6 @@ public class ProductInfoServiceImpl implements ProductInfoServiceInterface {
     public ProductInfo findOneProductInfoById(String id) {
         ProductInfo foundProductInfo =
                 productInfoRepo.findProductInfosByProductId(id).orElse(null);
-        System.out.println(foundProductInfo.toString());
-        System.out.println("test");
         return foundProductInfo;
 
     }
