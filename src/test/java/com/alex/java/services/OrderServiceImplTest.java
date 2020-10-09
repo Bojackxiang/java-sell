@@ -29,18 +29,18 @@ class OrderServiceImplTest {
     o1.setProductId("1");
     o1.setProductQuantity(1);
 
+    // 测试transactional
     OrderDetail o2 = new OrderDetail();
     o2.setProductId("2");
     o2.setProductQuantity(1);
 
-    // 测试transactional
-//    OrderDetail o3 = new OrderDetail();
-//    o2.setProductId("3");
-//    o2.setProductQuantity(1);
+    OrderDetail o3 = new OrderDetail();
+    o3.setProductId("3");
+    o3.setProductQuantity(1);
 
     orderDetailList.add(o1);
     orderDetailList.add(o2);
-//    orderDetailList.add(o3);
+    orderDetailList.add(o3);
 
     orderDto.setOrderDetailList(orderDetailList);
 
