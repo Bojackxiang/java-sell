@@ -2,6 +2,8 @@ package com.alex.java.services;
 
 import com.alex.java.DTO.OrderDTO.OrderDTO;
 import com.alex.java.dataObject.OrderMaster;
+import java.util.List;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.awt.print.Pageable;
@@ -9,16 +11,16 @@ import java.awt.print.Pageable;
 
 public interface OrderServiceInterface {
 
-    OrderDTO createOrder(OrderDTO orderDTO);
+    OrderMaster createOrder(OrderDTO orderDTO);
 
-    OrderMaster findOrder(String orderId);
+    OrderDTO findOrder(String orderId);
 
-    OrderDTO findOrderMasters(Pageable pageable);
+    List<OrderDTO> findOrderMasters(PageRequest pageRequest, String buyerOpenId);
 
-    OrderDTO cancelOrder(OrderDTO orderDTO);
+    OrderMaster cancelOrder(OrderDTO orderDTO);
 
-    OrderDTO finish(OrderDTO orderDTO);
+    OrderMaster finish(OrderDTO orderDTO);
 
-    OrderDTO paid(OrderDTO orderDTO);
+    OrderMaster paid(OrderDTO orderDTO);
 
 }
